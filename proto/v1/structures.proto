@@ -1,0 +1,41 @@
+syntax = 'proto3';
+
+package beget.billing.v1.structures;
+
+// Бонус для бесплатной регистрации или продления домена
+message BonusDomain {
+    oneof bonus_type {
+        // Тип бонуса - только указанная доменная зона
+        string zone_name = 1;
+
+        // Тип бонуса - спец. тип для промо-акций (идентификатор акции)
+        string promo = 2;
+    }
+
+    // Доступное кол-во бонусов
+    uint32 count = 3;
+
+    // Дата срока действия бонуса, если пустая - бонус действует бессрочно
+    // DateTime::W3C
+    // @Link("http://php.net/manual/ru/class.datetime.php#datetime.constants.w3c")
+    string expired_at = 4;
+}
+
+// Бонус для бесплатного переноса домена
+message BonusDomainTransfer {
+    oneof bonus_type {
+        // Тип бонуса - только указанная доменная зона
+        string zone_name = 1;
+
+        // Тип бонуса - спец. тип для промо-акций (идентификатор акции)
+        string promo = 2;
+    }
+
+    // Доступное кол-во бонусов
+    uint32 count = 3;
+
+    // Дата срока действия бонуса, если пустая - бонус действует бессрочно
+    // DateTime::W3C
+    // @Link("http://php.net/manual/ru/class.datetime.php#datetime.constants.w3c")
+    string expired_at = 4;
+}
