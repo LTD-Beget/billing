@@ -7,17 +7,17 @@ import "billing/proto/v1/structures.proto";
 
 service BonusService {
     // Получить бонусы для доменов
-    rpc getBonusDomain (GetBonusDomainsRequest) returns (GetBonusDomainsResponse) {
+    rpc getBonusDomain (GetBonusDomainRequest) returns (GetBonusDomainResponse) {
         option (google.api.http) = {
-            get: "/v1/billing/bonus/domains"
+            get: "/v1/billing/bonus/domain"
         };
     }
 }
 
-message GetBonusDomainsRequest {
+message GetBonusDomainRequest {
 }
 
-message GetBonusDomainsResponse {
+message GetBonusDomainResponse {
     // Бонусы для регистрации и продления доменов
-    repeated beget.billing.v1.structures.BonusDomains registration = 1;
+    repeated beget.billing.v1.structures.BonusDomain bonus_domain = 1;
 }

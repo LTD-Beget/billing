@@ -3,7 +3,7 @@ syntax = 'proto3';
 package beget.billing.v1.structures;
 
 // Бонус для бесплатной регистрации или продления домена
-message BonusDomains {
+message BonusDomain {
     // Тип бонуса - только указанная доменная зона
     string zone_name = 1;
 
