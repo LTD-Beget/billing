@@ -18,7 +18,7 @@ message GetBonusDomainRequest {
 
 message GetBonusDomainResponse {
     // Бонусы для регистрации и продления доменов
-    repeated beget.billing.v1.structures.BonusDomain bonus_domain = 1;
+    repeated BonusDomain bonus_domain = 1;
 }
 
 // Бонус для бесплатной регистрации или продления домена
