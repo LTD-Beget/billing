@@ -3,13 +3,12 @@ syntax = 'proto3';
 package beget.billing.v1.bonus;
 
 import "google/api/annotations.proto";
-import "billing/proto/v1/structures.proto";
 
 service BonusService {
-    // Получить бонусы по доменам
+    // Получить бонусы для доменов
     rpc getBonusDomain (GetBonusDomainRequest) returns (GetBonusDomainResponse) {
         option (google.api.http) = {
-            get: "/v1/bonus/domain/all"
+            get: "/v1/billing/bonus/domain"
         };
     }
 }
@@ -19,8 +18,14 @@ message GetBonusDomainRequest {
 
 message GetBonusDomainResponse {
     // Бонусы для регистрации и продления доменов
-    repeated beget.billing.v1.structures.BonusDomain bonus_domain = 1;
+    repeated BonusDomain bonus_domain = 1;
+}
 
-    // Бонуся для переноса доменов
-    repeated beget.billing.v1.structures.BonusDomainTransfer bonus_domain_transfer = 2;
+// Бонус для бесплатной регистрации или продления домена
+message BonusDomain {
+    // Тип бонуса - только указанная доменная зона
+    string zone_name = 1;
+
+    // Доступное кол-во бонусов
+    uint32 count = 2;
 }
